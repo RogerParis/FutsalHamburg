@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text, Dimensions } from 'react-native';
+import { ScrollView, Text, Dimensions } from 'react-native';
 import MapView from 'react-native-maps';
 
 import I18n from '../../../config/I18n';
 import { screenContaining } from '../../../components/containers/screenContainer';
-
-const { width } = Dimensions.get('window');
+import Location from '../../../components/location';
+import { regions } from '../../../data/regions';
 
 class ContactScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -16,18 +16,13 @@ class ContactScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <Text>{'ContactScreen'}</Text>
-        <MapView
-          style={{ flex: 1, width }}
-          initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}
+      <ScrollView style={{ flex: 1 }}>
+        <Location
+          region={regions.training}
+          title={I18n.t('locations.training.title')}
+          address={I18n.t('locations.training.address')}
         />
-      </View>
+      </ScrollView>
     );
   }
 }
