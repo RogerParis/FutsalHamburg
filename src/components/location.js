@@ -2,13 +2,14 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import MapView from 'react-native-maps';
 import PropTypes from 'prop-types';
+import openMap from 'react-native-open-maps';
 
 import { colors, commonStyles } from '../config/styles';
 
 const Location = ({ region, title, address }) => {
   return (
-    <TouchableOpacity onPress={() => { }} style={commonStyles.mapContainer}>
-    <Text style={commonStyles.mapTitle}>{title}</Text>
+    <TouchableOpacity onPress={() => openMap(region)} style={commonStyles.mapContainer}>
+      <Text style={commonStyles.mapTitle}>{title}</Text>
       <MapView
         liteMode
         loadingEnabled
