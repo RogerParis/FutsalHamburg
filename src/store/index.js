@@ -2,10 +2,12 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import apiReducer from './api/apiReducer';
+import referenceDataReducer from './referenceData/referenceDataReducer';
 
 
 const reducers = combineReducers({
   api: apiReducer,
+  referenceData: referenceDataReducer,
 });
 
 const middlewares = [thunk];
