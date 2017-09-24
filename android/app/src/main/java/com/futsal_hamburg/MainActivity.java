@@ -1,4 +1,4 @@
-package com.futsal_hamburg;
+package rogerparis.futsalhamburg.app;
 
 import com.facebook.react.ReactActivity;
 
