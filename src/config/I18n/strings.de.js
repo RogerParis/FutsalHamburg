@@ -9,8 +9,8 @@ export default {
     table: {
       title: 'Table',
     },
-    team: {
-      title: 'Team',
+    club: {
+      title: 'Club',
     },
     contact: {
       title: 'Contact',

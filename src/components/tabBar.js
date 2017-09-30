@@ -32,7 +32,7 @@ class TabBar extends TabBarBottom {
         />
         <TabBarButton
           image={navigationState.index === 1 ? 'ios-people' : 'ios-people-outline'}
-          onPress={() => this.onTabBarButtonPressed(1, 'team')}
+          onPress={() => this.onTabBarButtonPressed(1, 'club')}
         />
         <TabBarButton
           image={navigationState.index === 2 ? 'ios-contact' : 'ios-contact-outline'}

@@ -3,15 +3,15 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 import { colors } from '../../config/styles';
 import TabBar from '../../components/tabBar';
 import { TableNavigationStack } from '../../screens/table/tableNavigationStack';
-import { TeamNavigationStack } from '../../screens/team/teamNavigationStack';
+import { ClubNavigationStack } from '../../screens/club/clubNavigationStack';
 import { ContactNavigationStack } from '../../screens/contact/contactNavigationStack';
 
 const MainScreen = TabNavigator({
   table: {
     screen: TableNavigationStack,
   },
-  team: {
-    screen: TeamNavigationStack,
+  club: {
+    screen: ClubNavigationStack,
   },
   contact: {
     screen: ContactNavigationStack,
