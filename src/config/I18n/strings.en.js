@@ -1,8 +1,21 @@
 export default {
-  locations: {
-    training: {
-      title: 'Training',
-      address: 'Stadtteilschule Oldenfelde: Delingsdorfer Weg 6, 22143 Hamburg, Germany'
+  data: {
+    locations: {
+      training: {
+        title: 'Training',
+        address: 'Stadtteilschule Oldenfelde: Delingsdorfer Weg 6, 22143 Hamburg, Germany'
+      }
+    },
+    teams: {
+      first_team: {
+        label: 'First Team',
+      },
+      second_team: {
+        label: 'Second Team',
+      },
+      u18_team: {
+        label: 'U18 Team',
+      },
     }
   },
   screens: {

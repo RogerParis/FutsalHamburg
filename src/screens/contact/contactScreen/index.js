@@ -20,14 +20,14 @@ class ContactScreen extends React.Component {
   }
 
   render() {
-    const trainingLocation = this.props.locations.training;
+    const trainingLocation = this.props.locations.find((location) => location.handle === 'training');
     return (
       <ScrollView style={{ flex: 1 }}>
-        { trainingLocation &&
+        {trainingLocation &&
           <Location
             region={trainingLocation}
-            title={I18n.t('locations.training.title')}
-            address={I18n.t('locations.training.address')}
+            title={I18n.t('data.locations.training.title')}
+            address={I18n.t('data.locations.training.address')}
           />
         }
       </ScrollView>
