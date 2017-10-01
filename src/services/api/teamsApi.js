@@ -7,3 +7,17 @@ export const loadTeams = () => {
     return snapshotToArray(snapshot);
   });
 };
+
+export const loadCoachingStaff = (key) => {
+  return firebase.database().ref(`/coaches/${key}`).once('value')
+  .then((snapshot) => {
+    return snapshotToArray(snapshot);
+  });
+};
+
+export const loadPlayers = (key) => {
+  return firebase.database().ref(`/players/${key}`).once('value')
+  .then((snapshot) => {
+    return snapshotToArray(snapshot);
+  });
+};

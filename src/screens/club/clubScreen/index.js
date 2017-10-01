@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
 import I18n from '../../../config/I18n';
@@ -19,14 +19,16 @@ class ClubScreen extends React.Component {
 
   render() {
     const { teams } = this.props;
-    console.log(teams);
     return (
       <View style={{ flex: 1 }}>
         {teams.map(team => {
-        return (
-          <Text key={team.handle}>{I18n.t(`data.teams.${team.handle}.label`)}</Text>
+          const { key, handle } = team;
+          return (
+            <TouchableOpacity key={key} style={{ padding: 20 }} onPress={() => this.props.navigation.navigate('team', { key, handle })}>
+              <Text>{I18n.t(`data.teams.${handle}.label`)}</Text>
+            </TouchableOpacity>
           );
-      })}
+        })}
       </View>
     );
   }

@@ -6,5 +6,4 @@ export const ContactNavigationStack = StackNavigator({
   contact: {
     screen: ContactScreen
   },
-  
 });
