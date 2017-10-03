@@ -7,7 +7,7 @@ import { screenContaining } from '../../../components/containers/screenContainer
 import { loadTeams } from '../../../store/referenceData/referenceDataActions';
 
 class ClubScreen extends React.Component {
-  static navigationOptions = ({ navigation }) => {
+  static navigationOptions = () => {
     return {
       headerTitle: I18n.t('screens.club.title'),
     };
@@ -24,7 +24,11 @@ class ClubScreen extends React.Component {
         {teams.map(team => {
           const { key, handle } = team;
           return (
-            <TouchableOpacity key={key} style={{ padding: 20 }} onPress={() => this.props.navigation.navigate('team', { key, handle })}>
+            <TouchableOpacity
+              key={key}
+              style={{ padding: 20 }}
+              onPress={() => this.props.navigation.navigate('team', { key, handle })}
+            >
               <Text>{I18n.t(`data.teams.${handle}.label`)}</Text>
             </TouchableOpacity>
           );

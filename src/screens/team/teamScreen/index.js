@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { FlatList } from 'react-native';
 
 import I18n from '../../../config/I18n';
 import { screenContaining } from '../../../components/containers/screenContainer';
 import { loadCoachingStaff, loadPlayers } from '../../../model/teams/teamsDataSource';
 import { getFullName } from '../../../model/members';
+import MemberCell from '../../../components/memberCell';
 
 class TeamScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -16,36 +17,44 @@ class TeamScreen extends React.Component {
   constructor() {
     super();
     this.state = {
-      coaches: [],
-      players: [],
+      members: [],
     }
+    this.bindedRenderItem = this.renderItem.bind(this);
   }
 
   componentDidMount() {
     const { key } = this.props.navigation.state.params;
     loadCoachingStaff(key)
-      .then((coaches) => this.setState({ coaches }));
-    loadPlayers(key)
-      .then((players) => this.setState({ players }));
+      .then((coaches) => {
+        console.log('coaches: ',coaches);
+        this.setState({ members: [ ...this.state.members, ...coaches ] });
+        loadPlayers(key)
+          .then((players) => {
+            console.log('players: ',players);
+            this.setState({ members: [ ...this.state.members, ...players ] })
+          });
+      });
+
+  }
+
+  renderItem({ item }) {
+    const { member } = item;
+    return (
+      <MemberCell 
+        member={member}
+      />
+    );
   }
 
   render() {
-    const { coaches, players } = this.state;
+    const { members } = this.state;
+    console.log('members: ',members);
     return (
-      <View style={{ flex: 1 }}>
-        {coaches.map(coach => {
-          const fullName = getFullName(coach);
-          return (
-            <Text key={fullName}>{fullName}</Text>
-          );
-        })}
-        {players.map(player => {
-          const fullName = getFullName(player);
-          return (
-            <Text key={fullName}>{fullName}</Text>
-          );
-        })}
-      </View>
+      <FlatList
+        style={{ flex: 1 }}
+        data={members.map(item => ({ key: getFullName(item), member: item }))}
+        renderItem={this.bindedRenderItem}
+      />
     );
   }
 }

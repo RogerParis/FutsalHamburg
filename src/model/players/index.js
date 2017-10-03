@@ -7,5 +7,6 @@ export const playerFromApi = (apiPlayer) => {
     lastName: apiPlayer.last_name,
     portraitPhotoUrl: apiPlayer.portrait_photo_url,
     position: apiPlayer.position,
+    number: apiPlayer.number,
   };
 };
