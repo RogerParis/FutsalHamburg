@@ -53,7 +53,8 @@ MemberCell.propTypes = {
 
 const styles = StyleSheet.create({
   cellContainer: {
-    margin: 5,
+    marginHorizontal: 10,
+    marginVertical: 5,
     padding: 10,
     backgroundColor: colors.yellow,
     flexDirection: 'row',

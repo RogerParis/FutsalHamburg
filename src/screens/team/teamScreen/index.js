@@ -47,7 +47,7 @@ class TeamScreen extends React.Component {
     const { members } = this.state;
     return (
       <FlatList
-        style={{ flex: 1, margin: 10 }}
+        style={{ flex: 1 }}
         data={members.map(item => ({ key: getFullName(item), member: item }))}
         renderItem={this.bindedRenderItem}
       />
