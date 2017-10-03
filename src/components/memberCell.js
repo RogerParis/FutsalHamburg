@@ -1,8 +1,11 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Image, View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { getFullName } from '../model/members';
+import { colors } from '../config/styles';
+import I18n from '../config/I18n';
+
 
 const MemberCell = ({ member }) => {
   const fullName = getFullName(member);
@@ -10,7 +13,28 @@ const MemberCell = ({ member }) => {
     <TouchableOpacity
       style={styles.cellContainer}
     >
-      <Text key={fullName}>{fullName}</Text>
+      <Image
+        source={{ uri: member.portraitPhotoUrl }}
+        style={styles.image}
+        resizeMode={'cover'}
+      />
+      <View style={styles.detailsContainer}>
+        <Text
+          style={styles.fullName}
+        >
+          {fullName}
+        </Text>
+        <Text
+          style={styles.type}
+        >
+          {I18n.t(`data.members.types.${member.type}`)}
+        </Text>
+      </View>
+      <Text
+        style={styles.number}
+      >
+        {member.number}
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -22,14 +46,38 @@ MemberCell.propTypes = {
     joiningDate: PropTypes.string.isRequired,
     lastName: PropTypes.string.isRequired,
     portraitPhotoUrl: PropTypes.string,
-    position: PropTypes.string,
+    type: PropTypes.string.isRequired,
     number: PropTypes.number,
   }).isRequired
 };
 
 const styles = StyleSheet.create({
   cellContainer: {
-    padding: 20
+    margin: 5,
+    padding: 10,
+    backgroundColor: colors.yellow,
+    flexDirection: 'row',
+    borderRadius: 10,
+  },
+  image: {
+    width: 80,
+    height: 100,
+  },
+  fullName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: colors.black,
+  },
+  detailsContainer: {
+    flex: 1, 
+    marginLeft: 10
+  },
+  number: {
+    fontSize: 48,
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    marginLeft: 10,
+    color: colors.black,
   }
 });
 

@@ -16,6 +16,13 @@ export default {
       u18_team: {
         label: 'U18 Team',
       },
+    },
+    members: {
+      types: {
+        main_coach: 'Main Coach',
+        field_player: 'Field Player',
+        goalkeeper: 'Goalkeeper'
+      }
     }
   },
   screens: {

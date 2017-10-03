@@ -26,12 +26,9 @@ class TeamScreen extends React.Component {
     const { key } = this.props.navigation.state.params;
     loadCoachingStaff(key)
       .then((coaches) => {
-        console.log('coaches: ',coaches);
-        this.setState({ members: [ ...this.state.members, ...coaches ] });
         loadPlayers(key)
           .then((players) => {
-            console.log('players: ',players);
-            this.setState({ members: [ ...this.state.members, ...players ] })
+            this.setState({ members: [ ...this.state.members, ...coaches, ...players ] })
           });
       });
 
@@ -48,10 +45,9 @@ class TeamScreen extends React.Component {
 
   render() {
     const { members } = this.state;
-    console.log('members: ',members);
     return (
       <FlatList
-        style={{ flex: 1 }}
+        style={{ flex: 1, margin: 10 }}
         data={members.map(item => ({ key: getFullName(item), member: item }))}
         renderItem={this.bindedRenderItem}
       />
