@@ -22,7 +22,8 @@ export default {
         main_coach: 'Main Coach',
         field_player: 'Field Player',
         goalkeeper: 'Goalkeeper'
-      }
+      },
+      joiningDate: 'In the club since {{joiningDate}}'
     }
   },
   screens: {

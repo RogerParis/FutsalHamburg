@@ -29,6 +29,11 @@ const MemberCell = ({ member }) => {
         >
           {I18n.t(`data.members.types.${member.type}`)}
         </Text>
+        <Text
+          style={styles.joiningDate}
+        >
+          {I18n.t('data.members.joiningDate', { joiningDate: member.joiningDate })}
+        </Text>
       </View>
       <Text
         style={styles.number}
@@ -70,8 +75,9 @@ const styles = StyleSheet.create({
     color: colors.black,
   },
   detailsContainer: {
-    flex: 1, 
-    marginLeft: 10
+    flex: 1,
+    marginLeft: 10,
+    justifyContent: 'space-between'
   },
   number: {
     fontSize: 48,
@@ -79,6 +85,12 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginLeft: 10,
     color: colors.black,
+  }, 
+  type: {
+    fontSize: 16
+  },
+  joiningDate: {
+    fontSize: 12
   }
 });
 
