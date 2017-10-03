@@ -6,11 +6,13 @@ import { screenContaining } from '../../../components/containers/screenContainer
 import { loadCoachingStaff, loadPlayers } from '../../../model/teams/teamsDataSource';
 import { getFullName } from '../../../model/members';
 import MemberCell from '../../../components/memberCell';
+import BackButton from '../../../components/backButton';
 
 class TeamScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerTitle: I18n.t(`data.teams.${navigation.state.params.handle}.label`),
+      headerLeft: (<BackButton onBackPress={() => navigation.goBack()}/>),
     };
   };
 
