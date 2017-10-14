@@ -18,7 +18,9 @@ class ClubScreen extends React.Component {
   };
 
   componentDidMount() {
-    this.props.loadTeams();
+    if (this.props.teams.length === 0) {
+      this.props.loadTeams();
+    }
   }
 
   render() {
@@ -39,10 +41,10 @@ class ClubScreen extends React.Component {
                 resizeMode={'cover'}
               />
               <Text
-               style={styles.teamName}
+                style={styles.teamName}
               >
                 {I18n.t(`data.teams.${handle}.label`)}
-                </Text>
+              </Text>
             </TouchableOpacity>
           );
         })}
@@ -64,7 +66,7 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100,
-  }, 
+  },
   teamName: {
     flex: 1,
     marginHorizontal: 10,

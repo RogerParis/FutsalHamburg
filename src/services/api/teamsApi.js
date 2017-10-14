@@ -8,14 +8,14 @@ export const loadTeams = () => {
   });
 };
 
-export const loadCoachingStaff = (key) => {
+export const loadTeamStaff = (key) => {
   return firebase.database().ref(`/coaches/${key}`).once('value')
   .then((snapshot) => {
     return snapshotToArray(snapshot);
   });
 };
 
-export const loadPlayers = (key) => {
+export const loadTeamPlayers = (key) => {
   return firebase.database().ref(`/players/${key}`).once('value')
   .then((snapshot) => {
     return snapshotToArray(snapshot);

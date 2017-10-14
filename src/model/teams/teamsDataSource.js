@@ -9,15 +9,15 @@ export const loadTeams = () => {
     });
 };
 
-export const loadCoachingStaff = (key) => {
-  return TeamsApi.loadCoachingStaff(key)
+export const loadTeamStaff = (key) => {
+  return TeamsApi.loadTeamStaff(key)
     .then(coaches => {
       return coaches.map(coach => coachFromApi(coach));
     });
 };
 
-export const loadPlayers = (key) => {
-  return TeamsApi.loadPlayers(key)
+export const loadTeamPlayers = (key) => {
+  return TeamsApi.loadTeamPlayers(key)
     .then(players => {
       return players.map(player => playerFromApi(player));
     });

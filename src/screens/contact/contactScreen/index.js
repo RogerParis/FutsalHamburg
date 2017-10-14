@@ -1,6 +1,5 @@
 import React from 'react';
-import { ScrollView, Text, Dimensions } from 'react-native';
-import MapView from 'react-native-maps';
+import { ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 
 import I18n from '../../../config/I18n';
@@ -9,18 +8,21 @@ import Location from '../../../components/location';
 import { loadLocations } from '../../../store/referenceData/referenceDataActions';
 
 class ContactScreen extends React.Component {
-  static navigationOptions = ({ navigation }) => {
+  static navigationOptions = () => {
     return {
       headerTitle: I18n.t('screens.contact.title'),
     };
   }
 
   componentDidMount() {
-    this.props.loadLocations();
+    if (this.props.locations.length === 0) {
+      this.props.loadLocations();
+    }
   }
 
   render() {
-    const trainingLocation = this.props.locations.find((location) => location.handle === 'training');
+    const trainingLocation =
+      this.props.locations.find((location) => location.handle === 'training');
     return (
       <ScrollView style={{ flex: 1 }}>
         {trainingLocation &&
