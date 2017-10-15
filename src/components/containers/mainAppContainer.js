@@ -1,11 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import LoggedInLayout from '../layouts/loggedInLayout';
-import { loadReferenceData } from '../../store/referenceData/referenceDataActions';
+import { 
+  loadLocations, 
+  loadTeams, 
+} from '../../store/referenceData/referenceDataActions';
 
 class MainAppContainer extends React.Component {
-  componentWillMount() {
-    this.props.loadReferenceData();
+  componentDidMount() {
+    this.props.loadLocations();
+    this.props.loadTeams();
   }
 
   render() {
@@ -13,4 +18,7 @@ class MainAppContainer extends React.Component {
   }
 }
 
-export default connect(null, { loadReferenceData })(MainAppContainer);
+export default connect(null, {
+  loadLocations,
+  loadTeams,
+})(MainAppContainer);

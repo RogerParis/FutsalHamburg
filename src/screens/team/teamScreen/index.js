@@ -29,10 +29,10 @@ class TeamScreen extends React.Component {
   loadTeamMembers() {
     const { key } = this.props.navigation.state.params;
     const { coaches, players } = this.props;
-    if (coaches.length !== 0) {
+    if (coaches.length === 0) {
       this.props.loadTeamStaff(key);
     }
-    if (players.length !== 0) {
+    if (players.length === 0) {
       this.props.loadTeamPlayers(key);
     }
   }
@@ -60,8 +60,8 @@ class TeamScreen extends React.Component {
 
 const mapStateToProps = (state, props) => {
   const { key } = props.navigation.state.params;
-  const { coaches } = state.referenceData.coaches[key] || { coaches: [] };
-  const { players } = state.referenceData.players[key] || { players: [] };
+  const coaches = state.referenceData.coaches[key] || [];
+  const players = state.referenceData.players[key] || [];
   return { members: [...coaches, ...players], coaches, players };
 };
 

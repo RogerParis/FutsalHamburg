@@ -25,7 +25,7 @@ export const loadTeams = () => {
   };
 };
 
-const loadCoaches = () => {
+export const loadCoaches = () => {
   return (dispatch) => {
     return coachesDataSource.loadCoaches()
       .then(coaches => {
@@ -35,7 +35,7 @@ const loadCoaches = () => {
   };
 };
 
-const loadPlayers = () => {
+export const loadPlayers = () => {
   return (dispatch) => {
     return playersDataSource.loadPlayers()
       .then(players => {
@@ -63,11 +63,4 @@ export const loadTeamPlayers = (key) => {
       })
       .catch(e => console.log(e));
   };
-};
-
-export const loadReferenceData = () => {
-  loadLocations();
-  loadTeams();
-  loadCoaches();
-  loadPlayers();
 };

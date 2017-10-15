@@ -32,12 +32,12 @@ export default (state = initialState, action) => {
     case types.TEAM_STAFF_REFERENCE_DATA_SUCCESS:
       return {
         ...state,
-        coaches: { ...state.coaches, [action.key]: action.payload },
+        coaches: { ...state.coaches, [action.payload.key]: action.payload.coaches },
       };
     case types.TEAM_PLAYERS_REFERENCE_DATA_SUCCESS:
       return {
         ...state,
-        players: { ...state.players, [action.key]: action.payload },
+        players: { ...state.players, [action.payload.key]: action.payload.players },
       };
     default:
       return state;
