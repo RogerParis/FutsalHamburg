@@ -2,13 +2,13 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 
 import { colors } from '../../config/styles';
 import TabBar from '../../components/tabBar';
-import { TableNavigationStack } from '../../screens/table/tableNavigationStack';
+import { TournamentsNavigationStack } from '../../screens/tournaments/tournamentsNavigationStack';
 import { ClubNavigationStack } from '../../screens/club/clubNavigationStack';
 import { ContactNavigationStack } from '../../screens/contact/contactNavigationStack';
 
 const MainScreen = TabNavigator({
-  table: {
-    screen: TableNavigationStack,
+  tournaments: {
+    screen: TournamentsNavigationStack,
   },
   club: {
     screen: ClubNavigationStack,

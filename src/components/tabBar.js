@@ -23,12 +23,12 @@ class TabBar extends TabBarBottom {
   }
 
   render() {
-    const { navigation, navigationState, style } = this.props;
+    const { navigationState, style } = this.props;
     return (
       <View style={[styles.tabBarContainer, style]}>
         <TabBarButton
           image={navigationState.index === 0 ? 'ios-football' : 'ios-football-outline'}
-          onPress={() => this.onTabBarButtonPressed(0, 'table')}
+          onPress={() => this.onTabBarButtonPressed(0, 'tournaments')}
         />
         <TabBarButton
           image={navigationState.index === 1 ? 'ios-people' : 'ios-people-outline'}

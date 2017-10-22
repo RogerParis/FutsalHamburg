@@ -24,11 +24,19 @@ export default {
         goalkeeper: 'Goalkeeper'
       },
       joiningDate: 'In the club since {{joiningDate}}'
+    },
+    tables: {
+      headers: {
+        position: 'Position',
+        points: 'Points',
+        goalsDifference: 'Goal Diff.',
+        team: 'Team',
+      }
     }
   },
   screens: {
-    table: {
-      title: 'Table',
+    tournaments: {
+      title: 'Tournaments',
     },
     club: {
       title: 'Club',
