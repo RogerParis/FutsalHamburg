@@ -3,6 +3,7 @@ import * as types from './types';
 const initialState = {
   locations: [],
   teams: [],
+  tournaments: [],
   coaches: [],
   players: [],
 };
@@ -18,6 +19,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         teams: action.payload,
+      };
+    case types.TOURNAMENTS_REFERENCE_DATA_SUCCESS:
+      return {
+        ...state,
+        tournaments: action.payload,
       };
     case types.COACHES_REFERENCE_DATA_SUCCESS:
       return {

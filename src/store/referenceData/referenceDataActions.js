@@ -1,6 +1,7 @@
 import * as types from './types';
 import * as locationsDataSource from '../../model/locations/locationsDataSource';
 import * as teamsDataSource from '../../model/teams/teamsDataSource';
+import * as tournamentsDataSource from '../../model/tournaments/tournamentsDataSource';
 import * as coachesDataSource from '../../model/coaches/coachesDataSource';
 import * as playersDataSource from '../../model/players/playersDataSource';
 import { createAction } from '../../lib/actionsHelper';
@@ -20,6 +21,16 @@ export const loadTeams = () => {
     return teamsDataSource.loadTeams()
       .then(teams => {
         dispatch(createAction(types.TEAMS_REFERENCE_DATA_SUCCESS, teams));
+      })
+      .catch(e => console.log(e));
+  };
+};
+
+export const loadTournaments = () => {
+  return (dispatch) => {
+    return tournamentsDataSource.loadTournaments()
+      .then(teams => {
+        dispatch(createAction(types.TOURNAMENTS_REFERENCE_DATA_SUCCESS, teams));
       })
       .catch(e => console.log(e));
   };
