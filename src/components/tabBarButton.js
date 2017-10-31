@@ -1,32 +1,16 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Icon } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
-import { colors } from '../config/styles';
-
-const TabBarButton = ({ image, onPress }) => {
+const TabBarButton = ({ image, color }) => {
   return (
-    <TouchableOpacity
-      style={styles.buttonContainer}
-      onPress={onPress}
-    >
-      <Icon name={image} size={30} color={colors.yellow} />
-    </TouchableOpacity>
+    <Icon name={image} color={color} type='ionicon' />
   );
 };
 
 TabBarButton.propTypes = {
-  onPress: PropTypes.func.isRequired,
-  image: PropTypes.string.isRequired
+  image: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired
 };
-
-const styles = StyleSheet.create({
-  buttonContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default TabBarButton;
