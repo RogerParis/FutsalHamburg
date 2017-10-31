@@ -3,11 +3,7 @@ import { View, StatusBar } from 'react-native';
 
 import { colors } from '../../config/styles';
 
-export function screenContaining(ScreenComponent, params = {}) {
-  const containingParams = {
-    ...params,
-  };
-
+export function screenContaining(ScreenComponent) {
   const WrappedScreen = (props) => {
     return (
       <View style={[{ flex: 1 }, props.style]}>
@@ -39,3 +35,4 @@ export function screenContaining(ScreenComponent, params = {}) {
 
   return WrappedScreen;
 }
+

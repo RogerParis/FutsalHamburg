@@ -1,6 +1,4 @@
-import { StyleSheet, Platform, Dimensions } from 'react-native';
-
-const { width } = Dimensions.get('window');
+import { StyleSheet } from 'react-native';
 
 export const colors = {
   black: '#141215',
